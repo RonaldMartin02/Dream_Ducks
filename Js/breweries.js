@@ -7,9 +7,10 @@ fetch(requestUrl)
   })
   .then(function (data) {
     console.log(data)
-    for (var i = 0; i < data.length; i++) {
+    for (var i = 0; i < 5; i++) {
       var dbH1 = document.createElement('h1');
       dbH1.textContent = data[i].name + " " + data[i].city;
       dbdiv.appendChild(dbH1);
     }
   });
+
