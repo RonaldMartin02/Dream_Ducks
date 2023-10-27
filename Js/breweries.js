@@ -14,18 +14,3 @@ fetch(requestUrl)
     }
   });
 
-  const category = 'geography';
-fetch("https://api.api-ninjas.com/v1/trivia?category=" + category, {
-  method: 'GET',
-  headers: {
-    'X-Api-Key': 's4eai3OcTWIfItEZPVmhVQ==7xEbwZl3bg2IVXiV',
-    'Content-Type': 'application/json'
-  }
-})
-  .then(response => response.json())
-  .then(result => {
-    console.log(result);
-  })
-  .catch(error => {
-    console.error('Error: ', error);
-  });
