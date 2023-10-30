@@ -11,11 +11,9 @@ var dbdiv = document.querySelector('#db-list')
 
       let cityName = citySearch.value.trim();
      
-      //end/returns because the cityName was empty
-      // if(!cityName)return; 
 
       var requestUrl =`https://api.openbrewerydb.org/v1/breweries?by_city=${cityName}`
-      // var requestUrl =`https://api.openbrewerydb.org/v1/breweries?by_city=norman`
+      
       
       fetch(requestUrl)
       .then(function (response) {
