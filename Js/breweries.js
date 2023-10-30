@@ -3,15 +3,19 @@ var dbdiv = document.querySelector('#db-list')
   let citySearch = document.querySelector("#cityEntered");
   const searchButton=document.querySelector("#searchBtn");
   let breweryCard=document.querySelector(".card");
-  
+
 
   // function to use the search city with the API. Will then display the results
-  const getCityResults = function() {
-      // let cityName = citySearch.value.trim();
-      // if(!cityName)return; //end/returns because the cityName was empty
+  const getCityResults = function(event) {
+    event.preventDefault();
 
-      // var requestUrl =`https://api.openbrewerydb.org/v1/breweries?by_city=${cityName}`
-      var requestUrl =`https://api.openbrewerydb.org/v1/breweries?by_city=norman`
+      let cityName = citySearch.value.trim();
+     
+      //end/returns because the cityName was empty
+      // if(!cityName)return; 
+
+      var requestUrl =`https://api.openbrewerydb.org/v1/breweries?by_city=${cityName}`
+      // var requestUrl =`https://api.openbrewerydb.org/v1/breweries?by_city=norman`
       
       fetch(requestUrl)
       .then(function (response) {
@@ -45,8 +49,8 @@ var dbdiv = document.querySelector('#db-list')
           }
           dbdiv.appendChild(breweryCard);
       });
-  searchButton.addEventListener("click", getCityResults);  
-  }
+    }
+    searchButton.addEventListener("click", getCityResults);  
 
 
 
