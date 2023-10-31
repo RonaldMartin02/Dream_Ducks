@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, sans-serif;
+    transition: all 0.3s ease;
+}
+
+:root {
+    --main-bg-color: #D8C1AF;
+    --header-bg-color: #473933;
+    --header-text-color: #FFFFFF;
+    --card-bg-color: #FFFFFF;
+    --card-shadow: rgba(0, 0, 0, 0.1);
+    --primary-text-color: #D8C1AF;
+    --secondary-text-color: #9fa8da;
+    --button-bg-color: #A5A396;
+    --button-text-color: #FFFFFF;
+    --button-hover-bg-color: #228B22;
+}
+
+body {
+    background-color: var(--main-bg-color);
+    color: var(--primary-text-color);
+}
+
+header {
+    background-color: var(--header-bg-color);
+    padding: 30px 0;
+    text-align: center;
+}
+
+header h1 {
+    color: var(--header-text-color);
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+}
+
+.sections-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 10%;
+    gap: 30px;
+}
+
+.left-aligned-section {
+    flex: 1;
+    border-right: 2px solid var(--secondary-text-color);
+    padding-right: 20px;
+}
+
+.left-aligned-section h3 {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.left-aligned-section form {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.left-aligned-section input {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    border-bottom: 2px solid var(--secondary-text-color);
+    outline: none;
+    background-color: transparent;
+}
+
+.left-aligned-section button {
+    padding: 15px 25px;
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+.left-aligned-section button:hover {
+    background-color: var(--button-hover-bg-color);
+}
+
+.results-container {
+    flex: 3;
+}
+
+.card {
+    background-color: var(--card-bg-color);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 25px var(--card-shadow);
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background-color: var(--button-bg-color);
+    border-radius: 5px 0 0 5px;
+}
+
+.card h1 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.card h2,
+.card h3 {
+    color: var(--secondary-text-color);
+    margin-bottom: 10px;
+}
+
+.card a {
+    color: var(--button-bg-color);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px dashed var(--button-bg-color);
+}
+
+.card a:hover {
+    color: var(--button-hover-bg-color);
+}

@@ -1,12 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Brewery Results</title>
+    <link rel="stylesheet" href="Css/breweries.css">
 </head>
+
 <body>
-    
-    <script src="./Js/breweries.js"></script>
+    <header>
+        <h1>Search Results By City</h1>
+    </header>
+    <div class="sections-container">
+        <div class="left-aligned-section">
+            <h3>Search by City Near You</h3>
+            <form><input type="text" id="cityEntered" placeholder="Enter City">
+                <button id="searchBtn" type="submit">Search</button>
+            </form>
+        </div>
+
+        <div class="results-container">
+            <div id="db-list">
+                <div class="card">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="Js/breweries.js"></script>
 </body>
+
 </html>
