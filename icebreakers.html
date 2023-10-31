@@ -34,10 +34,20 @@
     <div id="facts-div">
         <h1>Facts</h1>
         <div class="slidecontainer">
-            <p>How many facts do you want to generate?</p>
-            <input type="range" min="1" max="5" value="1" class="slider" id="myRange">
+            <p>How many facts do you want to generate? <span id="fact-count"> </span></p> 
+            <input type="range" min="1" max="5" value="1" class="slider" id="factsRange">
+            
         </div>
         <button class="btn" id="facts-btn">Generate Fact</button>
+    </div>
+    <div id="jokes-div">
+        <h1>Jokes</h1>
+        <div class="slidecontainer">
+            <p>How many jokes do you want to generate? <span id="joke-count"> </span></p> 
+            <input type="range" min="1" max="5" value="1" class="slider" id="jokesRange">
+            
+        </div>
+        <button class="btn" id="jokes-btn">Generate Fact</button>
     </div>
 
     <script src="./Js/icebreakers.js"></script>
