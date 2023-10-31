@@ -2,16 +2,16 @@ var dbdiv = document.querySelector('#db-list')
   // var requestUrl = 'https://api.openbrewerydb.org/v1/breweries';
   let citySearch = document.querySelector("#cityEntered");
   const searchButton=document.querySelector("#searchBtn");
-  let breweryCard=document.querySelector(".card");
+
+  // let breweryCard=document.querySelector(".card");
 
 
   // function to use the search city with the API. Will then display the results
   const getCityResults = function(event) {
     event.preventDefault();
-
+  //brings in the name of the city from the search button. Will need to change this to get the city name from the original search on the index.html page. Ronald will suggested    
       let cityName = citySearch.value.trim();
      
-
       var requestUrl =`https://api.openbrewerydb.org/v1/breweries?by_city=${cityName}`
       
       
@@ -22,6 +22,10 @@ var dbdiv = document.querySelector('#db-list')
       .then(function (data) {
           console.log(data)
           for (var i = 0; i < data.length; i++) {
+
+            let card = document.createElement('div');
+            card.classList.add('card');
+            let breweryCard=document.querySelector(".card");
 
               var breweryName = document.createElement('h1');
               breweryName.textContent = data[i].name;
@@ -42,10 +46,20 @@ var dbdiv = document.querySelector('#db-list')
               var breweryUrl = document.createElement('a');
               breweryUrl.textContent = data[i].website_url;
               breweryCard.appendChild(breweryUrl)
-
-              
+             
           }
           dbdiv.appendChild(breweryCard);
+
+          function clearCards() {
+            let oldCards = document.getElementsByClassName("card");
+            // console.log(oldCards.length);
+            // console.log(oldCards);
+            for (let j=oldCards.length -1;j>=0; j--){
+                // console.log(j);
+                // console.log(oldCards[j]);
+                oldCards[j].remove();
+            }
+          }
       });
     }
     searchButton.addEventListener("click", getCityResults);  
