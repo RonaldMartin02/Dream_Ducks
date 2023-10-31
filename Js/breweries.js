@@ -21,11 +21,10 @@ var dbdiv = document.querySelector('#db-list')
       })
       .then(function (data) {
           console.log(data)
+          
           for (var i = 0; i < data.length; i++) {
-
-            let card = document.createElement('div');
-            card.classList.add('card');
-            let breweryCard=document.querySelector(".card");
+            
+            let breweryCard= document.createElement('div');
 
               var breweryName = document.createElement('h1');
               breweryName.textContent = data[i].name;
@@ -47,19 +46,11 @@ var dbdiv = document.querySelector('#db-list')
               breweryUrl.textContent = data[i].website_url;
               breweryCard.appendChild(breweryUrl)
              
+              dbdiv.append(breweryCard);
           }
-          dbdiv.appendChild(breweryCard);
+          
 
-          function clearCards() {
-            let oldCards = document.getElementsByClassName("card");
-            // console.log(oldCards.length);
-            // console.log(oldCards);
-            for (let j=oldCards.length -1;j>=0; j--){
-                // console.log(j);
-                // console.log(oldCards[j]);
-                oldCards[j].remove();
-            }
-          }
+    
       });
     }
     searchButton.addEventListener("click", getCityResults);  
