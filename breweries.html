@@ -1,100 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brewery Results</title>
-    <style>
-        *{
-        margin:0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Times New Roman', Times, serif;
-        }
-
-        :root {
-            --tan:#d8c1af;
-            --dkgrey:#888AA2;
-            --ltgrey:#d1d4da;
-            --black:#000;
-            --white:#FEFAF1;
-
-        }
-        body{
-            background-color: var(--tan);
-        }
-        header h1{
-            color: var(--white); 
-            padding: 15px 0;
-            text-align: center;
-            font-size: 2em;
-            background: var(--dkgrey);
-        }
-        .sections-container{
-            display: flex;
-            padding: 30px;
-            gap: 35px;
-        }
-        .left-aligned-section{
-            width: 250px;
-            margin-right: 10px;
-        }
-        .left-aligned-section input{
-            width:75%;
-            height:40px;
-            border-radius: 5px;
-            padding: 0 15px;
-            border: 2px solid var(--dkgrey);
-            box-shadow: 3px 3px var(--tan);
-            font-size: 1em;
-        }
-
-        .left-aligned-section button{
-            background-color: var(--ltgrey);
-            color: var(--black);
-            font-size: .8em;
-            border-radius: 5px;
-            width: 100px;
-            height: 35px;
-            padding:5px;
-            cursor:pointer;
-            margin:10px 0;
-        }
-
-        #db-list {
-            width: 100%; 
-            justify-content: space-between;
-            
-        }
-
-
-        #db-list .card{
-            background: var(--white);
-            color: var(--dkgrey);
-            padding: 15px 15px 15px 15px;
-            border-radius: 5px;
-            justify-content: left; 
-            margin: 25px 0;
-            box-shadow: 3px 3px var(--dkgrey);
-                
-        }
-
-        .card {
-            margin: 25px 0;
-        }
-        /* .card h1 {
-            font-size: 1.2em;
-            font-weight: bolder;
-        }
-        .card h2 {
-            font-size: 1em;
-        }
-        .card h3 {
-            font-size: .8em;
-        } */
-
-    </style>
+    <link rel="stylesheet" href="Css/breweries.css">
 </head>
+
 <body>
     <header>
         <h1>Search Results By City</h1>
@@ -102,21 +15,20 @@
     <div class="sections-container">
         <div class="left-aligned-section">
             <h3>Search by City Near You</h3>
-                <form><input type="text" id="cityEntered" placeholder="Enter City">
+            <form><input type="text" id="cityEntered" placeholder="Enter City">
                 <button id="searchBtn" type="submit">Search</button>
-                </form>
-        </div> 
-
-    <div class="results-container">
-        <div id="db-list">
-            <div class="card">
-                
-            </div>
-
-
+            </form>
         </div>
-    </div>  
-    
+
+        <div class="results-container">
+            <div id="db-list">
+                <div class="card">
+
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="Js/breweries.js"></script>
 </body>
+
 </html>
