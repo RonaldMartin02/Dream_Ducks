@@ -25,7 +25,7 @@ var dbdiv = document.querySelector('#db-list')
           for (var i = 0; i < data.length; i++) {
             
             let breweryCard= document.createElement('div');
-
+              breweryCard.setAttribute("class", "card");
               var breweryName = document.createElement('h1');
               breweryName.textContent = data[i].name;
               breweryCard.appendChild(breweryName)
