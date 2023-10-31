@@ -21,11 +21,14 @@ var dbdiv = document.querySelector('#db-list')
       })
       .then(function (data) {
           console.log(data)
+
+          clearCards();
           
           for (var i = 0; i < data.length; i++) {
             
             let breweryCard= document.createElement('div');
               breweryCard.setAttribute("class", "card");
+
               var breweryName = document.createElement('h1');
               breweryName.textContent = data[i].name;
               breweryCard.appendChild(breweryName)
@@ -42,9 +45,19 @@ var dbdiv = document.querySelector('#db-list')
               breweryCityStateZip.textContent = data[i].city + ", " + data[i].state + " " + data[i].postal_code;
               breweryCard.appendChild(breweryCityStateZip)
 
+              var breweryType = document.createElement('h3');
+              breweryType.textContent = "Type: " + data[i].brewery_type;
+              breweryCard.appendChild(breweryType)
+
               var breweryUrl = document.createElement('a');
               breweryUrl.textContent = data[i].website_url;
+              breweryUrl.setAttribute("href",data[i].website_url);
+              breweryUrl.setAttribute("target","_blank");
               breweryCard.appendChild(breweryUrl)
+
+              // var breweryUrl = document.createElement('a');
+              // breweryUrl.textContent = data[i].website_url;
+              // breweryCard.appendChild(breweryUrl)
              
               dbdiv.append(breweryCard);
           }
@@ -52,7 +65,21 @@ var dbdiv = document.querySelector('#db-list')
 
     
       });
-    }
+
+        function clearCards() {
+          let oldCards = document.getElementsByClassName("card");
+          console.log(oldCards.length);
+          console.log(oldCards);
+          for (let j=oldCards.length -1;j>=0; j--){
+              console.log(j);
+              console.log(oldCards[j]);
+              oldCards[j].remove();
+          }
+      
+      }
+}    
+
+
     searchButton.addEventListener("click", getCityResults);  
 
 
