@@ -5,11 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dream Ducks: Results</title>
-    <link rel="stylesheet" href="Css/icbreaker.css"
+    <link rel="stylesheet" href="Css/icbreaker.css">
+    <link rel="stylesheet" href="Css/slider.css">
 </head>
 
 <body>
     <div id="trivia-div">
+        <h1>Trivia</h1>
         <select id="trivia-dropdown">
             <option value="blank" selected="selected"></option>
             <option value="artliterature">Art and Literature</option>
@@ -27,7 +29,15 @@
             <option value="religionmythology">Religion and Mythology</option>
             <option value="sportsleisure">Sports and Leisure</option>
         </select>
-        <button class="btn" id="trivia-btn">Generate Fact</button>
+        <button class="btn" id="trivia-btn">Generate Trivia</button>
+    </div>
+    <div id="facts-div">
+        <h1>Facts</h1>
+        <div class="slidecontainer">
+            <p>How many facts do you want to generate?</p>
+            <input type="range" min="1" max="5" value="1" class="slider" id="myRange">
+        </div>
+        <button class="btn" id="facts-btn">Generate Fact</button>
     </div>
 
     <script src="./Js/icebreakers.js"></script>
