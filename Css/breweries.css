@@ -42,17 +42,7 @@ header h1 {
     padding: 30px 10%;
     gap: 30px;
 }
-p{
-    color: var(--header-bg-color)
-}
-ul{
-    color:#473933
-}
 
-ul span{
-    font-weight:bolder ;
-    
-}
 .left-aligned-section {
     flex: 1;
     border-right: 2px solid var(--secondary-text-color);
