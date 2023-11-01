@@ -42,7 +42,14 @@ header h1 {
     padding: 30px 10%;
     gap: 30px;
 }
+ul{
+    color:#473933
+}
 
+ul span{
+    font-weight:bolder ;
+    
+}
 .left-aligned-section {
     flex: 1;
     border-right: 2px solid var(--secondary-text-color);

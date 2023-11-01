@@ -12,7 +12,8 @@ var dbdiv = document.querySelector('#db-list')
   //brings in the name of the city from the search button. Will need to change this to get the city name from the original search on the index.html page. Ronald will suggested    
       let cityName = citySearch.value.trim();
      
-      var requestUrl =`https://api.openbrewerydb.org/v1/breweries?by_city=${cityName}`
+      var requestUrl =`https://api.openbrewerydb.org/v1/breweries?by_city=${cityName}&sort=type,state:asc`
+      https://api.openbrewerydb.org/v1/breweries?by_state=ohio&sort=type,name:asc
       
       
       fetch(requestUrl)
@@ -55,9 +56,35 @@ var dbdiv = document.querySelector('#db-list')
               breweryUrl.setAttribute("target","_blank");
               breweryCard.appendChild(breweryUrl)
 
-              // var breweryUrl = document.createElement('a');
-              // breweryUrl.textContent = data[i].website_url;
-              // breweryCard.appendChild(breweryUrl)
+             
+              
+
+            //  trying to create maps for each place
+            let longitude = data[i].longitude;
+            let latitude = data[i].latitude;
+            console.log(longitude, latitude);
+          
+            let mapRequestUrl = `https://www.mapquestapi.com/staticmap/v5/map?key=o9jwvmjO9PUJfBv5BBejULQqjOmRpQRd&center=${latitude},${longitude}&size=@2x`
+
+            fetch(mapRequestUrl)
+            .then(function (response) {
+                return response;
+            })
+            .then(function (data) {
+                console.log(data)
+              
+                for (var i = 0; i < data.length; i++) {
+
+                  // let breweryMap= document.createElement('div');
+                  let breweryMap = document.createElement('img');
+                  breweryMap.setAttribute("id", "map");
+                  breweryMap.setAttribute("src", data[i].url);
+                  breweryCard.appendChild(map);
+
+
+
+                }
+            })
              
               dbdiv.append(breweryCard);
           }
