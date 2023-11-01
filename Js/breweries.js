@@ -64,7 +64,7 @@ var dbdiv = document.querySelector('#db-list')
             let latitude = data[i].latitude;
             console.log(longitude, latitude);
           
-            let mapRequestUrl = `https://www.mapquestapi.com/staticmap/v5/map?key=o9jwvmjO9PUJfBv5BBejULQqjOmRpQRd&center=${latitude},${longitude}&size=@2x`
+            let mapRequestUrl = `https://www.mapquestapi.com/staticmap/v5/map?key=o9jwvmjO9PUJfBv5BBejULQqjOmRpQRd&center=${latitude},${longitude}&size=@2x&defaultMarker=circle-3B5998-sm&format=png`
 
             fetch(mapRequestUrl)
             .then(function (response) {
@@ -77,9 +77,9 @@ var dbdiv = document.querySelector('#db-list')
 
                   // let breweryMap= document.createElement('div');
                   let breweryMap = document.createElement('img');
+                  breweryMap.src=data[i].url;
                   breweryMap.setAttribute("id", "map");
-                  breweryMap.setAttribute("src", data[i].url);
-                  breweryCard.appendChild(map);
+                  breweryCard.appendChild(breweryMap);
 
 
 
@@ -111,19 +111,5 @@ var dbdiv = document.querySelector('#db-list')
 
 
 
-// var dbdiv = document.querySelector('#db-list')
-// var requestUrl = 'https://api.openbrewerydb.org/v1/breweries';
 
-// fetch(requestUrl)
-//   .then(function (response) {
-//     return response.json();
-//   })
-//   .then(function (data) {
-//     console.log(data)
-//     for (var i = 0; i < 5; i++) {
-//       var dbH1 = document.createElement('h1');
-//       dbH1.textContent = data[i].name + " " + data[i].city;
-//       dbdiv.appendChild(dbH1);
-//     }
-//   });
 
