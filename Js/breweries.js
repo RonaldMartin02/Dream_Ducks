@@ -1,75 +1,71 @@
-var dbdiv = document.querySelector('#db-list')
-  // var requestUrl = 'https://api.openbrewerydb.org/v1/breweries';
-  let citySearch = document.querySelector("#cityEntered");
-  const searchButton=document.querySelector("#searchBtn");
+var dbdiv = document.querySelector('#db-list');
+let citySearch = document.querySelector("#cityEntered");
+const searchButton = document.querySelector("#searchBtn");
 
-  // let breweryCard=document.querySelector(".card");
-
-
-  // function to use the search city with the API. Will then display the results
-  const getCityResults = function(event) {
+const getCityResults = function(event) {
     event.preventDefault();
-  //brings in the name of the city from the search button. Will need to change this to get the city name from the original search on the index.html page. Ronald will suggested    
-      let cityName = citySearch.value.trim();
-     
-      var requestUrl =`https://api.openbrewerydb.org/v1/breweries?by_city=${cityName}`
-      
-      
-      fetch(requestUrl)
-      .then(function (response) {
-          return response.json();
-      })
-      .then(function (data) {
-          console.log(data)
-          
-          for (var i = 0; i < data.length; i++) {
-            
-            let breweryCard= document.createElement('div');
-              breweryCard.setAttribute("class", "card");
-              var breweryName = document.createElement('h1');
-              breweryName.textContent = data[i].name;
-              breweryCard.appendChild(breweryName)
-              
-              var breweryCity = document.createElement('h2');
-              breweryCity.textContent = data[i].city;
-              breweryCard.appendChild(breweryCity)
-              
-              var breweryStreetAddress = document.createElement('h3');
-              breweryStreetAddress.textContent = data[i].address_1;
-              breweryCard.appendChild(breweryStreetAddress)
-              
-              var breweryCityStateZip = document.createElement('h3');
-              breweryCityStateZip.textContent = data[i].city + ", " + data[i].state + " " + data[i].postal_code;
-              breweryCard.appendChild(breweryCityStateZip)
-
-              var breweryUrl = document.createElement('a');
-              breweryUrl.textContent = data[i].website_url;
-              breweryCard.appendChild(breweryUrl)
-             
-              dbdiv.append(breweryCard);
-          }
-          
-
+    let cityName = citySearch.value.trim();
     
-      });
+    if (cityName === '') {
+        alert('Please enter a city.');
+        return;
     }
-    searchButton.addEventListener("click", getCityResults);  
+    
+    var requestUrl = `https://api.openbrewerydb.org/v1/breweries?by_city=${cityName}`;
+      
+    fetch(requestUrl)
+    .then(function(response) {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(function(data) {
+        dbdiv.innerHTML = '';  // Clear existing results
+        
+        if (data.length === 0) {
+            alert('No results found for the entered city.');
+            return;
+        }
+        
+        data.forEach(brewery => {
+            let breweryCard = document.createElement('div');
+            breweryCard.setAttribute("class", "card");
+            
+            var breweryName = document.createElement('h1');
+            breweryName.textContent = brewery.name;
+            breweryCard.appendChild(breweryName);
+              
+            var breweryCity = document.createElement('h2');
+            breweryCity.textContent = brewery.city;
+            breweryCard.appendChild(breweryCity);
+              
+            if (brewery.address_1) {
+                var breweryStreetAddress = document.createElement('h3');
+                breweryStreetAddress.textContent = brewery.address_1;
+                breweryCard.appendChild(breweryStreetAddress);
+            }
+              
+            var breweryCityStateZip = document.createElement('h3');
+            breweryCityStateZip.textContent = `${brewery.city}, ${brewery.state} ${brewery.postal_code}`;
+            breweryCard.appendChild(breweryCityStateZip);
 
+            if (brewery.website_url) {
+                var breweryUrl = document.createElement('a');
+                breweryUrl.textContent = 'Visit Website';
+                breweryUrl.href = brewery.website_url;
+                breweryUrl.target = '_blank';  // Open in a new tab
+                breweryCard.appendChild(breweryUrl);
+            }
+             
+            dbdiv.append(breweryCard);
+        });
+    })
+    .catch(error => {
+        console.log('There was a problem with the fetch operation:', error.message);
+    });
+};
 
+searchButton.addEventListener("click", getCityResults);
 
-// var dbdiv = document.querySelector('#db-list')
-// var requestUrl = 'https://api.openbrewerydb.org/v1/breweries';
-
-// fetch(requestUrl)
-//   .then(function (response) {
-//     return response.json();
-//   })
-//   .then(function (data) {
-//     console.log(data)
-//     for (var i = 0; i < 5; i++) {
-//       var dbH1 = document.createElement('h1');
-//       dbH1.textContent = data[i].name + " " + data[i].city;
-//       dbdiv.appendChild(dbH1);
-//     }
-//   });
 
