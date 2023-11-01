@@ -22,7 +22,7 @@
     <div id="trivia-div">
         <h1>Trivia</h1>
         <select id="trivia-dropdown">
-            <option value="blank" selected="selected"></option>
+            <option value="blank" selected="selected" disabled> Please Pick an Topic</option>
             <option value="artliterature">Art and Literature</option>
             <option value="language">Language</option>
             <option value="sciencenature">Science and Nature</option>
@@ -43,22 +43,105 @@
     <div id="facts-div">
         <h1>Facts</h1>
         <div class="slidecontainer">
-            <p>How many facts do you want to generate? <span id="fact-count"> </span></p> 
+            <p>How many facts do you want to generate? <span id="fact-count"> </span></p>
             <input type="range" min="1" max="5" value="1" class="slider" id="factsRange">
-            
+
         </div>
         <button class="btn" id="facts-btn">Generate Fact</button>
     </div>
     <div id="jokes-div">
         <h1>Jokes</h1>
         <div class="slidecontainer">
-            <p>How many jokes do you want to generate? <span id="joke-count"> </span></p> 
+            <p>How many jokes do you want to generate? <span id="joke-count"> </span></p>
             <input type="range" min="1" max="5" value="1" class="slider" id="jokesRange">
-            
+
         </div>
         <button class="btn" id="jokes-btn">Generate Fact</button>
     </div>
+    <div id="norris-div">
+        <h1>Chuck Norris Jokes</h1>
+        <button class="btn" id="norris-btn">Generate Chuck Norris Joke</button>
+    </div>
+    <div id="quotes-div">
+        <h1>Quotes</h1>
+        <select id="quotes-dropdown">
+            <option value="blank" selected="selected" disabled> Please Pick an Topic</option>
+            <option value="age">Age</option>
+            <option value="alone">Alone</option>
+            <option value="amazing">Amazing</option>
+            <option value="anger">Anger</option>
+            <option value="architecture">Architecture</option>
+            <option value="art">Art</option>
+            <option value="attitude">Attitude</option>
+            <option value="beauty">Beauty</option>
+            <option value="best">Best</option>
+            <option value="birthday">Birthday</option>
+            <option value="car">Car</option>
+            <option value="change">Change</option>
+            <option value="communications">Communications</option>
+            <option value="computers">Computers</option>
+            <option value="cool">Cool</option>
+            <option value="courage">Courage</option>
+            <option value="dad">Dad</option>
+            <option value="dating">Dating</option>
+            <option value="death">Death</option>
+            <option value="computers">Computers</option>
+            <option value="design">Design</option>
+            <option value="computers">Computers</option>
+            <option value="dreams">Dreams</option>
+            <option value="education">Education</option>
+            <option value="environmental">Environmental</option>
+            <option value="equality">Equality</option>
+            <option value="experience">Experience</option>
+            <option value="failure">Failure</option>
+            <option value="faith">Faith</option>
+            <option value="family">Family</option>
+            <option value="famous">Famous</option>
+            <option value="fear">Fear</option>
+            <option value="fitness">Fitness</option>
+            <option value="food">Food</option>
+            <option value="forgiveness">Forgiveness</option>
+            <option value="freedom">Freedom</option>
+            <option value="friendship">Friendship</option>
+            <option value="funny">Funny</option>
+            <option value="future">Future</option>
+            <option value="friendship">Friendship</option>
+            <option value="good">Good</option>
+            <option value="graduation">Graduation</option>
+            <option value="great">Great</option>
+            <option value="happiness">Happiness</option>
+            <option value="health">Health</option>
+            <option value="history">History</option>
+            <option value="home">Home</option>
+            <option value="hope">Hope</option>
+            <option value="humor">Humor</option>
+            <option value="imagination">Imagination</option>
+            <option value="inspirational">Inspirational</option>
+            <option value="intelligence">Intelligence</option>
+            <option value="jealousy">Jealousy</option>
+            <option value="knowledge">Knowledge</option>
+            <option value="leadership">Leadership</option>
+            <option value="learning">Learning</option>
+            <option value="legal">Legal</option>
+            <option value="life">Life</option>
+            <option value="love">Love</option>
+            <option value="marriage">Marriage</option>
+            <option value="medical">Medical</option>
+            <option value="men">Men</option>
+            <option value="mom">Mom</option>
+            <option value="money">Money</option>
+            <option value="morning">Morning</option>
+            <option value="movies">Movies</option>
+            <option value="success">Success</option>
+        </select>
 
+        <button class="btn" id="quote-btn">Generate Quote</button>
+    </div>
+
+    <div id="riddle-div">
+        <h1>Riddle</h1>
+        <button class="btn" id="riddle-btn">Generate a Riddle</button>
+    </div>
     <script src="./Js/icebreakers.js"></script>
 </body>
 
