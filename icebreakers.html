@@ -19,10 +19,12 @@
 </head>
 
 <body>
-    <div id="trivia-div">
+    <div class="row">
+        <div id="trivia-div">
         <h1>Trivia</h1>
+        <p>Please Pick an Topic</p>  
         <select id="trivia-dropdown">
-            <option value="blank" selected="selected" disabled> Please Pick an Topic</option>
+            <option value="blank" selected="selected" disabled> </option>
             <option value="artliterature">Art and Literature</option>
             <option value="language">Language</option>
             <option value="sciencenature">Science and Nature</option>
@@ -38,6 +40,8 @@
             <option value="religionmythology">Religion and Mythology</option>
             <option value="sportsleisure">Sports and Leisure</option>
         </select>
+        <p>How many pieces of trivia do you want to generate? <span id="trivia-count"> </span></p>
+        <input type="range" min="1" max="5" value="1" class="slider" id="triviaRange">
         <button class="btn" id="trivia-btn">Generate Trivia</button>
     </div>
     <div id="facts-div">
@@ -47,9 +51,11 @@
             <input type="range" min="1" max="5" value="1" class="slider" id="factsRange">
 
         </div>
-        <button class="btn" id="facts-btn">Generate Fact</button>
+        <button class="btn" id="facts-btn">Generate a Fact</button>
     </div>
-    <div id="jokes-div">
+</div>
+    <div class="row">
+         <div id="jokes-div">
         <h1>Jokes</h1>
         <div class="slidecontainer">
             <p>How many jokes do you want to generate? <span id="joke-count"> </span></p>
@@ -60,8 +66,12 @@
     </div>
     <div id="norris-div">
         <h1>Chuck Norris Jokes</h1>
-        <button class="btn" id="norris-btn">Generate Chuck Norris Joke</button>
+        <button class="btn" id="norris-btn">Generate a Chuck Norris Joke</button>
     </div>
+    </div>
+   
+<div class="row">
+
     <div id="quotes-div">
         <h1>Quotes</h1>
         <select id="quotes-dropdown">
@@ -69,7 +79,6 @@
             <option value="age">Age</option>
             <option value="alone">Alone</option>
             <option value="amazing">Amazing</option>
-            <option value="anger">Anger</option>
             <option value="architecture">Architecture</option>
             <option value="art">Art</option>
             <option value="attitude">Attitude</option>
@@ -82,19 +91,15 @@
             <option value="computers">Computers</option>
             <option value="cool">Cool</option>
             <option value="courage">Courage</option>
-            <option value="dad">Dad</option>
             <option value="dating">Dating</option>
             <option value="death">Death</option>
-            <option value="computers">Computers</option>
             <option value="design">Design</option>
-            <option value="computers">Computers</option>
             <option value="dreams">Dreams</option>
             <option value="education">Education</option>
             <option value="environmental">Environmental</option>
             <option value="equality">Equality</option>
             <option value="experience">Experience</option>
             <option value="failure">Failure</option>
-            <option value="faith">Faith</option>
             <option value="family">Family</option>
             <option value="famous">Famous</option>
             <option value="fear">Fear</option>
@@ -105,7 +110,6 @@
             <option value="friendship">Friendship</option>
             <option value="funny">Funny</option>
             <option value="future">Future</option>
-            <option value="friendship">Friendship</option>
             <option value="good">Good</option>
             <option value="graduation">Graduation</option>
             <option value="great">Great</option>
@@ -125,23 +129,23 @@
             <option value="legal">Legal</option>
             <option value="life">Life</option>
             <option value="love">Love</option>
-            <option value="marriage">Marriage</option>
             <option value="medical">Medical</option>
-            <option value="men">Men</option>
-            <option value="mom">Mom</option>
             <option value="money">Money</option>
             <option value="morning">Morning</option>
             <option value="movies">Movies</option>
             <option value="success">Success</option>
         </select>
 
-        <button class="btn" id="quote-btn">Generate Quote</button>
+        <button class="btn" id="quote-btn">Generate a Quote</button>
     </div>
 
     <div id="riddle-div">
         <h1>Riddle</h1>
         <button class="btn" id="riddle-btn">Generate a Riddle</button>
     </div>
+</div>
+
+    
     <script src="./Js/icebreakers.js"></script>
 </body>
 

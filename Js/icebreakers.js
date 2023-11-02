@@ -1,6 +1,7 @@
 var triviaCat = document.querySelector("#trivia-dropdown");
 var triviaBtn = document.querySelector("#trivia-btn");
 var triviaDiv = document.querySelector("#trivia-div");
+
 var factsDiv = document.querySelector("#facts-div");
 var factsBtn = document.querySelector("#facts-btn");
 
@@ -9,18 +10,24 @@ var jokesBtn = document.querySelector("#jokes-btn");
 
 var norrisDiv = document.querySelector("#norris-div");
 var norrisBtn = document.querySelector("#norris-btn");
+
 var quoteCat = document.querySelector("#quotes-dropdown");
 var quotesDiv = document.querySelector("#quotes-div");
 var quoteBtn = document.querySelector("#quote-btn");
+
 var riddleDiv = document.querySelector("#riddle-div");
 var riddleBtn = document.querySelector("#riddle-btn");
-//move into a for loop 
 
 var triviaCategory = "";
 var FactsAmount = "";
 var jokeAmount = "";
 var norrisAmount = "";
 var quoteCategory = "";
+
+var factSlider = document.getElementById("triviaRange");
+var factCountEl = document.getElementById("trivia-count");
+factCountEl.textContent = parseInt(factSlider.value);
+
 
 function triviaGen(){
     triviaCategory = triviaCat.value;
@@ -43,6 +50,7 @@ function triviaGen(){
     triviaDiv.append(trivia);
     triviah3.textContent = result[0].question;
     triviaP.textContent = result[0].answer;
+    triviaBtn.textContent = "Generate More Trivia"
   })
   .catch(error => {
     console.error('Error: ', error);
@@ -56,10 +64,16 @@ function clearTrivia() {
 }
 var factSlider = document.getElementById("factsRange");
 var factCountEl = document.getElementById("fact-count");
-factCountEl.textContent = factSlider.value;
+factCountEl.textContent = parseInt(factSlider.value);
 
 factSlider.oninput = function() {
   factCountEl.textContent = this.value;
+  if(parseInt(this.value) === 1){
+    factsBtn.textContent="Generate a Fact"
+  } else if (parseInt(this.value) > 1) {
+    factsBtn.textContent="Generate Facts"
+  }
+  
 }
 
 function factsGen(){
@@ -76,12 +90,11 @@ function factsGen(){
     
     clearFacts()
     for(var i = 0; i< result.length;i++){
-      
       var factsh3 = document.createElement("h3");
       var factsP = document.createElement("p");
       var facts = document.createElement("div")
       facts.classList = "facts"
-      factsh3.textContent = "Did you know"
+      factsh3.textContent = "Fact #" + (i+ 1);
       factsP.textContent = result[i].fact;
       facts.append(factsh3)
       facts.append(factsP)
@@ -102,10 +115,16 @@ function clearFacts() {
 }
 var jokeSlider = document.getElementById("jokesRange");
 var jokeCountEl = document.getElementById("joke-count");
-jokeCountEl.textContent = jokeSlider.value;
+jokeCountEl.textContent = parseInt(jokeSlider.value);
 
 jokeSlider.oninput = function() {
   jokeCountEl.textContent = this.value;
+  if(parseInt(this.value) === 1){
+    
+    jokesBtn.textContent="Generate a Joke"
+  } else if (parseInt(this.value) > 1) {
+    jokesBtn.textContent="Generate Jokes"
+  }
 }
 
 function jokesGen(){
@@ -125,7 +144,7 @@ function jokesGen(){
       var jokeP = document.createElement("p");
       var jokes = document.createElement("div")
       jokes.classList = "jokes"
-      jokeh3.textContent = "Joke #" + i;
+      jokeh3.textContent = "Joke #" + (i+ 1);
       
       jokeP.textContent = result[i].joke;
       jokes.append(jokeh3)
