@@ -36,10 +36,10 @@ At the home page you will choose to search for breweries or explore the availabl
  * Your search by city will result in a list of establishments in or near your city. This list is populated from [Open Brewery DB,](https://www.openbrewerydb.org/) a free dataset and API with public information on breweries, cideries, brewpubs, and bottleshops.<br> 
  * There are many icebreaker choices. You can choose to display up to five icebreakers at a time. The different icebreakers are: **trivia, facts, jokes, quotes, riddles**.
 
-Screenshot of [Brewery Search](./img/Brewery%20search%20Screenshot%20.png)
-Screenshot of [Brewery Search on Hub](./img/Brewery%20search%20Hub.png)
-Screenshot of [Icebreaker on iPad](./img/IceBreakers%20Ipad.png)
-Screenshot of [Icebreaker topics on iPad](./img/Icebreakers%20showing%20the%20topics%20list.png)
+Screenshot of [Brewery Search](./img/Brewery%20search%20Screenshot%20.png)<br>
+Screenshot of [Brewery Search on Hub](./img/Brewery%20search%20Hub.png)<br>
+Screenshot of [Icebreaker on iPad](./img/IceBreakers%20Ipad.png)<br>
+Screenshot of [Icebreaker topics on iPad](./img/Icebreakers%20showing%20the%20topics%20list.png)<br>
 ## Credits
 This web app was created by a team. Names and GitHub repos are listed below.
   
