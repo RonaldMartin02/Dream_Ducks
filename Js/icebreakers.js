@@ -24,6 +24,7 @@ var triviaAmount = "";
 var factsAmount = "";
 
 var quoteCategory = "";
+var quoteAmount = "";
 
 var jokeAmount = "";
 
@@ -232,6 +233,7 @@ var quoteCountEl = document.getElementById("quote-count");
 quoteCountEl.textContent = parseInt(quoteSlider.value);
 quoteSlider.oninput = function() {
   quoteCountEl.textContent = this.value;
+  console.log(this.value)
   if(parseInt(this.value) === 1){
     
     quoteBtn.textContent="Generate a Quote"
@@ -241,7 +243,8 @@ quoteSlider.oninput = function() {
 }
 function quotesGen(){
   quoteCategory = quoteCat.value;
-  fetch("https://api.api-ninjas.com/v1/quotes?category=" + quoteCategory, {
+  quoteAmount = quoteSlider.value;
+  fetch("https://api.api-ninjas.com/v1/quotes?category=" + quoteCategory + "&limit="+ quoteAmount, {
 method: 'GET',
 headers: {
   'X-Api-Key': 's4eai3OcTWIfItEZPVmhVQ==7xEbwZl3bg2IVXiV',
@@ -251,17 +254,17 @@ headers: {
 .then(response => response.json())
 .then(result => { 
   clearQuotes()
+  for(var i = 0; i< result.length;i++){
   var quoteh3 = document.createElement("h3");
   var quoteP = document.createElement("p");
   var quote = document.createElement("div")
   quote.classList = "quote"
-  quoteh3.textContent = "Quote Generated:";
-  quoteP.textContent = result[0].quote;
+  quoteh3.textContent = "Quote #" + (i+1);
+  quoteP.textContent = result[i].quote;
   quote.append(quoteh3);
   quote.append(quoteP);
-  
-  
   quotesDiv.append(quote);
+  }
 })
 .catch(error => {
   console.error('Error: ', error);
