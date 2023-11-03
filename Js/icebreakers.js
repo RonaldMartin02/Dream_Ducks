@@ -8,8 +8,8 @@ var factsBtn = document.querySelector("#facts-btn");
 var jokesDiv = document.querySelector("#jokes-div");
 var jokesBtn = document.querySelector("#jokes-btn");
 
-var norrisDiv = document.querySelector("#norris-div");
-var norrisBtn = document.querySelector("#norris-btn");
+var dadDiv = document.querySelector("#dad-div");
+var dadBtn = document.querySelector("#dad-btn");
 
 var quoteCat = document.querySelector("#quotes-dropdown");
 var quotesDiv = document.querySelector("#quotes-div");
@@ -19,19 +19,28 @@ var riddleDiv = document.querySelector("#riddle-div");
 var riddleBtn = document.querySelector("#riddle-btn");
 
 var triviaCategory = "";
-var FactsAmount = "";
-var jokeAmount = "";
-var norrisAmount = "";
+var triviaAmount = "";
+
+var factsAmount = "";
+
 var quoteCategory = "";
 
-var factSlider = document.getElementById("triviaRange");
-var factCountEl = document.getElementById("trivia-count");
-factCountEl.textContent = parseInt(factSlider.value);
+var jokeAmount = "";
 
+var dadAmount = "";
 
+var riddleAmount = "";
+
+var triviaSlider = document.getElementById("triviaRange");
+var triviaCountEl = document.getElementById("trivia-count");
+triviaCountEl.textContent = parseInt(triviaSlider.value);
+triviaSlider.oninput = function() {
+  triviaCountEl.textContent = this.value;  
+}
 function triviaGen(){
     triviaCategory = triviaCat.value;
-    fetch("https://api.api-ninjas.com/v1/trivia?category=" + triviaCategory, {
+    triviaAmount = triviaSlider.value;
+    fetch("https://api.api-ninjas.com/v1/trivia?category=" + triviaCategory+ "&limit=" + triviaAmount, {
   method: 'GET',
   headers: {
     'X-Api-Key': 's4eai3OcTWIfItEZPVmhVQ==7xEbwZl3bg2IVXiV',
@@ -41,15 +50,20 @@ function triviaGen(){
   .then(response => response.json())
   .then(result => { 
     clearTrivia()
+    for(var i = 0; i< result.length;i++){
     var triviah3 = document.createElement("h3");
     var triviaP = document.createElement("p");
     var trivia = document.createElement("div")
     trivia.classList = "trivia"
+   
+    
+    triviah3.textContent = "Question #"+ (i+1) +": "+ result[i].question;
+    triviaP.textContent = result[i].answer;
+    
     trivia.append(triviah3);
     trivia.append(triviaP);
     triviaDiv.append(trivia);
-    triviah3.textContent = result[0].question;
-    triviaP.textContent = result[0].answer;
+    }
     triviaBtn.textContent = "Generate More Trivia"
   })
   .catch(error => {
@@ -62,10 +76,10 @@ function clearTrivia() {
     oldTrivia[i].remove();
   }
 }
+
 var factSlider = document.getElementById("factsRange");
 var factCountEl = document.getElementById("fact-count");
 factCountEl.textContent = parseInt(factSlider.value);
-
 factSlider.oninput = function() {
   factCountEl.textContent = this.value;
   if(parseInt(this.value) === 1){
@@ -77,8 +91,8 @@ factSlider.oninput = function() {
 }
 
 function factsGen(){
-  FactsAmount = factSlider.value;
-    fetch("https://api.api-ninjas.com/v1/facts?limit=" + FactsAmount, {
+  factsAmount = factSlider.value;
+    fetch("https://api.api-ninjas.com/v1/facts?limit=" + factsAmount, {
   method: 'GET',
   headers: {
     'X-Api-Key': 'VL87+lt+oTWu9ITfd0qcaA==LpaINk8wGhmB0Dry',
@@ -113,10 +127,10 @@ function clearFacts() {
       oldFacts[i].remove();
   }
 }
+
 var jokeSlider = document.getElementById("jokesRange");
 var jokeCountEl = document.getElementById("joke-count");
 jokeCountEl.textContent = parseInt(jokeSlider.value);
-
 jokeSlider.oninput = function() {
   jokeCountEl.textContent = this.value;
   if(parseInt(this.value) === 1){
@@ -126,7 +140,6 @@ jokeSlider.oninput = function() {
     jokesBtn.textContent="Generate Jokes"
   }
 }
-
 function jokesGen(){
   jokeAmount = jokeSlider.value;
     fetch("https://api.api-ninjas.com/v1/jokes?limit=" + jokeAmount, {
@@ -158,7 +171,6 @@ function jokesGen(){
     console.error('Error: ', error);
   });
 }
-
 function clearJokes() {
   let oldJokes = document.getElementsByClassName("jokes");
   for (let i=oldJokes.length -1;i>=0; i--){
@@ -166,10 +178,22 @@ function clearJokes() {
   }
 }
 
+var dadSlider = document.getElementById("dadRange");
+var dadCountEl = document.getElementById("dad-count");
+dadCountEl.textContent = parseInt(dadSlider.value);
+dadSlider.oninput = function() {
+  dadCountEl.textContent = this.value;
+  if(parseInt(this.value) === 1){
+    
+    dadBtn.textContent="Generate a Dad Joke"
+  } else if (parseInt(this.value) > 1) {
+    dadBtn.textContent="Generate Dad Jokes"
+  }
+}
+function dadGen(){
+  dadAmount=dadSlider.value;
 
-
-function norrisGen(){
-    fetch("https://api.api-ninjas.com/v1/chucknorris?" , {
+    fetch("https://api.api-ninjas.com/v1/dadjokes?limit="+ dadAmount , {
   method: 'GET',
   headers: {
     'X-Api-Key': 'VL87+lt+oTWu9ITfd0qcaA==LpaINk8wGhmB0Dry',
@@ -178,29 +202,43 @@ function norrisGen(){
 })
   .then(response => response.json())
   .then(result => {
-    clearNorris()
-      var norrish3 = document.createElement("h3");
-      var norrisP = document.createElement("p");
-      var norris = document.createElement("div")
-      norris.classList = "norris"
-      norrish3.textContent = "Joke";
-      norrisP.textContent = result.joke;
-      norris.append(norrish3)
-      norris.append(norrisP)
-      norrisDiv.append(norris)
+    clearDad()
+    for(var i = 0; i< result.length;i++){
+      var dadh3 = document.createElement("h3");
+      var dadP = document.createElement("p");
+      var dad = document.createElement("div")
+      dad.classList = "dad"
+      dadh3.textContent = "Dad Joke #" + (i+1);
+      dadP.textContent = result[0].joke;
+      dad.append(dadh3)
+      dad.append(dadP)
+      dadDiv.append(dad)
+    }
   })
   .catch(error => {
     console.error('Error: ', error);
   });
 }
 
-function clearNorris() {
-  let oldNorris = document.getElementsByClassName("norris");
-  for (let i=oldNorris.length -1;i>=0; i--){
-    oldNorris[i].remove();
+function clearDad() {
+  let oldDad = document.getElementsByClassName("dad");
+  for (let i=oldDad.length -1;i>=0; i--){
+    oldDad[i].remove();
   }
 }
 
+var quoteSlider = document.getElementById("quoteRange");
+var quoteCountEl = document.getElementById("quote-count");
+quoteCountEl.textContent = parseInt(quoteSlider.value);
+quoteSlider.oninput = function() {
+  quoteCountEl.textContent = this.value;
+  if(parseInt(this.value) === 1){
+    
+    quoteBtn.textContent="Generate a Quote"
+  } else if (parseInt(this.value) > 1) {
+    quoteBtn.textContent="Generate Quotes"
+  }
+}
 function quotesGen(){
   quoteCategory = quoteCat.value;
   fetch("https://api.api-ninjas.com/v1/quotes?category=" + quoteCategory, {
@@ -236,8 +274,21 @@ for (let i=oldQuotes.length -1;i>=0; i--){
 }
 }
 
+var riddleSlider = document.getElementById("riddleRange");
+var riddleCountEl = document.getElementById("riddle-count");
+riddleCountEl.textContent = parseInt(riddleSlider.value);
+riddleSlider.oninput = function() {
+  riddleCountEl.textContent = this.value;
+  if(parseInt(this.value) === 1){
+    
+    riddleBtn.textContent="Generate a Riddle"
+  } else if (parseInt(this.value) > 1) {
+    riddleBtn.textContent="Generate Riddles"
+  }
+}
 function riddleGen(){
-  fetch("https://api.api-ninjas.com/v1/riddles" , {
+  riddleAmount = riddleSlider.value;
+  fetch("https://api.api-ninjas.com/v1/riddles?limit=" + riddleAmount , {
 method: 'GET',
 headers: {
   'X-Api-Key': 'VL87+lt+oTWu9ITfd0qcaA==LpaINk8wGhmB0Dry',
@@ -247,6 +298,7 @@ headers: {
 .then(response => response.json())
 .then(result => {
   clearRiddle()
+  for(var i = 0; i< result.length;i++){
     var riddleh3 = document.createElement("h3");
     var riddleP = document.createElement("p");
     var riddle = document.createElement("div")
@@ -256,6 +308,7 @@ headers: {
     riddle.append(riddleh3)
     riddle.append(riddleP)
     riddleDiv.append(riddle)
+  }
 })
 .catch(error => {
   console.error('Error: ', error);
@@ -271,6 +324,6 @@ for (let i=oldRiddle.length -1;i>=0; i--){
 triviaBtn.addEventListener("click", triviaGen)
 factsBtn.addEventListener("click", factsGen)
 jokesBtn.addEventListener("click", jokesGen)
-norrisBtn.addEventListener("click", norrisGen)
+dadBtn.addEventListener("click", dadGen)
 quoteBtn.addEventListener("click", quotesGen)
 riddleBtn.addEventListener("click", riddleGen)
