@@ -1,10 +1,9 @@
 var dbdiv = document.querySelector('#db-list');
 let citySearch = document.querySelector("#cityEntered");
 const searchButton = document.querySelector("#searchBtn");
-// Get the modal
+
 var modal = document.getElementById("myModal");
 
-// Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 var modalMessage = document.getElementsByClassName("modal-message")[0];
 
@@ -12,7 +11,7 @@ span.onclick = function() {
   modal.style.display = "none";
 }
 
-// When the user clicks anywhere outside of the modal, close it
+
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
@@ -24,8 +23,9 @@ const getCityResults = function(event) {
     let cityName = citySearch.value.trim();
     
     if (cityName === '') {
-        modal.style.display = "block"
-        modalMessage.textContent = "Please Choose a City"
+        modal.style.display = "block";
+        modalMessage.textContent = "Please Choose a City";
+        return;
     }
     
     var requestUrl = `https://api.openbrewerydb.org/v1/breweries?by_city=${cityName}`;
@@ -33,17 +33,19 @@ const getCityResults = function(event) {
     fetch(requestUrl)
     .then(function(response) {
         if (!response.ok) {
-           modal.style.display = "block"
-           modalMessage.textContent = "Network response was not ok"
+           modal.style.display = "block";
+           modalMessage.textContent = "Network response was not ok";
+           throw new Error("Network response was not ok");
         }
         return response.json();
     })
     .then(function(data) {
-        dbdiv.innerHTML = '';  // Clear existing results
+        dbdiv.innerHTML = '';
         
         if (data.length === 0) {
-            modal.style.display = "block"
-           modalMessage.textContent = "No results found for the entered city."
+            modal.style.display = "block";
+            modalMessage.textContent = "No results found for the entered city.";
+            return;
         }
         
         data.forEach(brewery => {
@@ -72,26 +74,34 @@ const getCityResults = function(event) {
                 var breweryUrl = document.createElement('a');
                 breweryUrl.textContent = 'Visit Website';
                 breweryUrl.href = brewery.website_url;
-                breweryUrl.target = '_blank';  // Open in a new tab
+                breweryUrl.target = '_blank';
                 breweryCard.appendChild(breweryUrl);
             }
+
+           
+            let mapRequestUrl = `https://www.google.com/maps/search/?api=1&query=${brewery.address_1}+${brewery.city}+${brewery.state}`;
+            var breweryMapLink = document.createElement('a');
+            breweryMapLink.textContent = " | Click to view a map of the area";
+            breweryMapLink.href = mapRequestUrl;
+            breweryMapLink.target = "_blank";
+            breweryCard.appendChild(breweryMapLink);
              
             dbdiv.append(breweryCard);
         });
     })
     .catch(error => {
-        modal.style.display = "block"
-           modalMessage.textContent = 'There was a problem with the fetch operation:', error.message;
+        modal.style.display = "block";
+        modalMessage.textContent = `There was a problem with the fetch operation: ${error.message}`;
     });
 };
 
 searchButton.addEventListener("click", getCityResults);
-searchButton.addEventListener("", getCityResults);
 
 citySearch.addEventListener("keydown", (event) => {
-    console.log(event.key)
+    console.log(event.key);
     if (event.key === "Enter"){
-        getCityResults(event)
-     }
+        getCityResults(event);
+    }
 });
+
 

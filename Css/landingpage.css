@@ -107,3 +107,35 @@ nav a:hover {
     align-items: center;
 }
 
+body {
+    background-image: url('../img/background.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+    background-size: cover;
+}
+
+@media screen and (max-width: 768px) {
+    #brand {
+        font-size: 24px;
+    }
+    
+    nav a {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .about-us h2,
+    .left-aligned-section h3,
+    .right-aligned-section h3 {
+        font-size: 20px;
+    }
+    .about-us p,
+    .left-aligned-section,
+    .right-aligned-section {
+        font-size: 16px;
+    }
+    
+    .sections-container {
+        flex-direction: column;
+    }
+}

@@ -210,7 +210,7 @@ function dadGen(){
       var dad = document.createElement("div")
       dad.classList = "dad"
       dadh3.textContent = "Dad Joke #" + (i+1);
-      dadP.textContent = result[0].joke;
+      dadP.textContent = result[i].joke;
       dad.append(dadh3)
       dad.append(dadP)
       dadDiv.append(dad)
@@ -271,7 +271,7 @@ headers: {
 });
 }
 function clearQuotes() {
-let oldQuotes = document.getElementsByClassName("trivia");
+let oldQuotes = document.getElementsByClassName("quote");
 for (let i=oldQuotes.length -1;i>=0; i--){
   oldQuotes[i].remove();
 }
@@ -306,8 +306,8 @@ headers: {
     var riddleP = document.createElement("p");
     var riddle = document.createElement("div")
     riddle.classList = "riddle"
-    riddleh3.textContent = result[0].question;
-    riddleP.textContent = result[0].answer;
+    riddleh3.textContent = result[i].question;
+    riddleP.textContent = result[i].answer;
     riddle.append(riddleh3)
     riddle.append(riddleP)
     riddleDiv.append(riddle)
