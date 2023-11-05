@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dream Ducks: Results</title>
     <link rel="stylesheet" href="Css/icbreaker.css">
-    <link rel="stylesheet" href="Css/slider.css">
-
+    <link rel="stylesheet" href="Css/Slider.css">
+    <link rel="stylesheet" href="Css/modals.css">
     <header>
         <div id="brand">it's time to Get Social</div>
         <nav>
@@ -41,7 +41,7 @@
                 <option value="sportsleisure">Sports and Leisure</option>
             </select>
             <p>How many pieces of trivia do you want to generate? <span id="trivia-count"> </span></p>
-            <input type="range" min="1" max="5" value="1" class="slider" id="triviaRange">
+            <input type="range" min="1" max="100" value="1" class="slider" id="triviaRange" >
             <button class="btn" id="trivia-btn">Generate Trivia</button>
         </div>
 
@@ -49,7 +49,7 @@
             <h1>Facts</h1>
             <div class="slidecontainer">
                 <p>How many facts do you want to generate? <span id="fact-count"> </span></p>
-                <input type="range" min="1" max="5" value="1" class="slider" id="factsRange">
+                <input type="range" min="1" max="100" value="1" class="slider" id="factsRange">
 
             </div>
             <button class="btn" id="facts-btn">Generate a Fact</button>
@@ -62,16 +62,16 @@
             <h1>Jokes</h1>
             <div class="slidecontainer">
                 <p>How many jokes do you want to generate? <span id="joke-count"> </span></p>
-                <input type="range" min="1" max="5" value="1" class="slider" id="jokesRange">
+                <input type="range" min="1" max="100" value="1" class="slider" id="jokesRange">
 
             </div>
-            <button class="btn" id="jokes-btn">Generate Fact</button>
+            <button class="btn" id="jokes-btn">Generate a Joke</button>
         </div>
         <div id="dad-div">
             <h1>Dad Jokes</h1>
             <div class="slidecontainer">
                 <p>How many Dad jokes do you want to generate? <span id="dad-count"> </span></p>
-                <input type="range" min="1" max="5" value="1" class="slider" id="dadRange">
+                <input type="range" min="1" max="100" value="1" class="slider" id="dadRange">
 
             </div>
             <button class="btn" id="dad-btn">Generate a Dad Joke</button>
@@ -82,8 +82,9 @@
 
         <div id="quotes-div">
             <h1>Quotes</h1>
+            <p>Please Pick an Topic</p>
             <select id="quotes-dropdown">
-                <option value="blank" selected="selected" disabled> Please Pick an Topic</option>
+                <option value="blank" selected="selected" disabled></option>
                 <option value="age">Age</option>
                 <option value="alone">Alone</option>
                 <option value="amazing">Amazing</option>
@@ -145,7 +146,7 @@
             </select>
             <div class="slidecontainer">
                 <p>How many Quotes do you want to generate? <span id="quote-count"> </span></p>
-                <input type="range" min="1" max="5" value="1" class="slider" id="quoteRange">
+                <input type="range" min="1"max="100" value="1" class="slider" id="quoteRange">
 
             </div>
             <button class="btn" id="quote-btn">Generate a Quote</button>
@@ -155,14 +156,21 @@
             <h1>Riddle</h1>
             <div class="slidecontainer">
                 <p>How many Riddles do you want to generate? <span id="riddle-count"> </span></p>
-                <input type="range" min="1" max="5" value="1" class="slider" id="riddleRange">
+                <input type="range" min="1" max="100" value="1" class="slider" id="riddleRange">
 
             </div>
             <button class="btn" id="riddle-btn">Generate a Riddle</button>
         </div>
     </div>
 
+    <div id="myModal" class="modal">
 
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p class="modal-message"></p>
+        </div>
+      
+      </div>
     <script src="./Js/icebreakers.js"></script>
 </body>
 
