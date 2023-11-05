@@ -50,6 +50,10 @@ nav a:hover {
     margin: 20px auto;
     width: 90%;
 }
+/* trying to add the directions across the top  */
+/* .directions-container{
+    max-width:100%;
+} */
 
 .description-container {
     flex-basis: 20%;
@@ -151,4 +155,30 @@ nav a:hover {
 
 .card a:hover {
     color: #473933;
+}
+footer{
+    margin: 10px;
+    padding: 5px;
+    background-color:#473933;
+    color: #D8C1AF;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 545px) {
+    main,
+    nav {
+      flex-direction: column;
+    }
+    .row{
+        display:flex;
+        flex-direction: column;
+    }
+    .description-container{
+        font-size: .5em;
+        padding-left: 1px;
+    }
+    li{
+        font-size: .5em;
+    }
 }
