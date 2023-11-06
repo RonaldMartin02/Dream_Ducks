@@ -165,7 +165,69 @@ footer{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Styles for the hamburger menu icon */
+.hamburger {
+    display: none; /* Hide by default */
+    flex-direction: column;
+    cursor: pointer;
+  }
+  
+  .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+    border-radius: 3px;
+  }
+  nav.active a {
+    display: block;
+  }
+  #navbar2.active{
+    display: block;
+    background-color: #473933c7;
+
+  }
+  #navbar2{
+    display: none;
+  }
+
+@media screen and (min-width: 767px) {
+    #navbar2.active{
+    display: none;
+  }
+  #navbar2{
+    display: none;
+  }
+}
+@media screen and (max-width: 767px) {
+    #navbar2.active{
+    display: block;
+  }
+  #navbar2{
+    display: none;
+  }
+  nav a {
+    display: none;
+  }
+
+  /* Show the hamburger menu */
+  .hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
 @media screen and (max-width: 545px) {
+    nav a {
+        display: none;
+      }
+    
+      /* Show the hamburger menu */
+      .hamburger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     main,
     nav {
       flex-direction: column;

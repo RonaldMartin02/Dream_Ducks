@@ -39,6 +39,7 @@ nav a:hover {
 }
 
 .about-us {
+    width: 90%;
     max-width: 800px;
     margin: 50px auto;
     text-align: center;
@@ -61,9 +62,9 @@ nav a:hover {
 .sections-container {
     display: flex;
     justify-content: space-between;
-    align-items: start;
     margin: 50px auto;
     max-width: 1300px;
+    width: 90%;
 }
 
 .left-aligned-section, .right-aligned-section {
@@ -127,6 +128,7 @@ nav a:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 }
 .left-aligned-section {
     display: flex;
@@ -141,8 +143,42 @@ body {
     background-attachment: fixed;  
     background-size: cover;
 }
+/* Styles for the hamburger menu icon */
+.hamburger {
+    display: none; /* Hide by default */
+    flex-direction: column;
+    cursor: pointer;
+  }
+  
+  .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+    border-radius: 3px;
+  }
+  
+  nav.active a {
+    display: block;
+  }
+  #navbar2.active{
+    display: block;
+    background-color: #888aa296;
 
-@media screen and (max-width: 768px) {
+  }
+  #navbar2{
+    display: none;
+  }
+
+@media screen and (min-width: 767px) {
+    #navbar2.active{
+    display: none;
+  }
+  #navbar2{
+    display: none;
+  }
+}
+@media screen and (max-width: 767px) {
     #brand {
         font-size: 24px;
     }
@@ -151,7 +187,6 @@ body {
         display: block;
         margin-bottom: 5px;
     }
-
     .about-us h2,
     .left-aligned-section h3,
     .right-aligned-section h3 {
@@ -164,17 +199,38 @@ body {
     }
     
     .sections-container {
+        display: flex;
         flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        flex-wrap: wrap;
     }
+  
+    /* Hide the regular navigation links */
+  nav a {
+    display: none;
+  }
+
+  /* Show the hamburger menu */
+  .hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 @media screen and (max-width: 450px) {
     main,
     nav {
       flex-direction: column;
+      
     }
     .row{
         display:flex;
         flex-direction: column;
     }
-    
+    .sections-container {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+    }
 }
