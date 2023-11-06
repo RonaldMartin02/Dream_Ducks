@@ -30,7 +30,7 @@
 - [Credits](#credits)
 - [License](#license)
 ## Installation
-No installation is required to use this web app but you will need to be connect to wifi or streaming data. The link for **it's time to get Social** is:
+No installation is required to use this web app but you will need to be connect to wifi or streaming data. The link for **it's time to get Social is**:(https://ronaldmartin02.github.io/Dream_Ducks/index.html)
 ## Usage
 At the home page you will choose to search for breweries or explore the available icebreakers.<br> 
  * Your search by city will result in a list of establishments in or near your city. This list is populated from [Open Brewery DB,](https://www.openbrewerydb.org/) a free dataset and API with public information on breweries, cideries, brewpubs, and bottleshops.<br> 
@@ -61,7 +61,7 @@ The Application Program Interfaces we used for this project are:
   - [API Ninjas](https://api-ninjas.com/) There are many API topics availabe but we used the Trivia API, Facts API, Dad Jokes API, Jokes API, Quotes API, Riddles API . If you are looking for APIs, explore API Ninja. You can get a free API key by creating an account.<br>
 
 ####  Resources used for design
-  - [Canva,](https://www.canva.com/) Canva's color palettes and presentation templates are wonderful resources for our design and layout. We also used Canva images for our presentation and logo. We followed [Canva's Free Media License Agreement](https://www.canva.com/policies/free-media-license-agreement-2022-01-03/)
+  - [Canva,](https://www.canva.com/) Canva's [color palettes](https://www.canva.com/colors/) and presentation templates are wonderful resources for our design and layout. We also used Canva images for our presentation and logo. We followed [Canva's Free Media License Agreement](https://www.canva.com/policies/free-media-license-agreement-2022-01-03/)
 
 
 ## License

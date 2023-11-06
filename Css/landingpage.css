@@ -11,16 +11,22 @@ body {
 
 header {
     background-color: #888AA2;
+    padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 40px 5%;
     color: white;
 }
 
+nav {
+    display: flex;
+    gap: 15px;
+}
 nav a {
     margin-left: 20px;
     color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
     transition: color 0.3s;
 }
 
@@ -74,7 +80,7 @@ nav a:hover {
     gap: 10px;
 }
 
-.left-aligned-section button, .right-aligned-section .icebreaker-link {
+/* .left-aligned-section button, .right-aligned-section .icebreaker-link {
     padding: 10px 20px;
     background-color: #473933;
     color: white;
@@ -89,6 +95,22 @@ nav a:hover {
 .left-aligned-section button:hover, .right-aligned-section .icebreaker-link:hover {
     background-color: #473933;
    
+} */
+.icebreaker-link {
+    padding: 10px 20px;
+    background-color: #473933;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.icebreaker-link:hover {
+    background-color: #473933;
+   
 }
 
 .right-aligned-section h3{
@@ -101,6 +123,12 @@ nav a:hover {
 }
 
 .right-aligned-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.left-aligned-section {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -138,4 +166,15 @@ body {
     .sections-container {
         flex-direction: column;
     }
+}
+@media screen and (max-width: 450px) {
+    main,
+    nav {
+      flex-direction: column;
+    }
+    .row{
+        display:flex;
+        flex-direction: column;
+    }
+    
 }

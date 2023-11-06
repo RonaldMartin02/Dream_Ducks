@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brewery Results</title>
+    <link rel="shortcut icon" href="./img/initialsLNR.png" type="image/x-icon">
     <link rel="stylesheet" href="Css/breweries.css">
     <link rel="stylesheet" href="Css/modals.css">
 </head>
@@ -18,6 +19,7 @@
             <a href="./breweries.html">Search Breweries Near You</a>
             <a href="./icebreakers.html">A Little Something to Break the Ice</a>
         </nav>
+        
     </header>
 <div id="myModal" class="modal">
 
@@ -28,7 +30,7 @@
 
 </div>
     <div class="container">
-
+        
         <div class="description-container">
             <p>Descriptions of Types of Breweries</p>
             <ul>
@@ -46,7 +48,9 @@
         </div>
 
         <div class="main-content">
-
+            <div class="directions-container">
+                <p>  You can search for breweries by city in the search box below. Please note the list matches the <b>city</b> you've entered. Be sure to check the state listed as city names can appear in more than one state. (i.e. Fairfield, Connecticut and Fairfield, California).</p>
+            </div>
             <div class="search-container">
                 <input type="text" id="cityEntered" class="search-input" placeholder="Search...">
                 <button class="search-btn" id="searchBtn">🔍</button>
@@ -60,6 +64,8 @@
         </div>
 
     </div>
+    <footer>The list of breweries is generated from the Open Brewery DB created and maintained by Chris J Mears and Wandering Leaf Studios LLC. According to the website, the initial dataset for the API came from the Brewers Association.
+        <b>Disclaimer:</b> The website links for the individual breweries are maintained by the individual businesses. If the website link is not working, please contact the business. Also, you must be 21 years old to legally consume alcohol in the United States. Please drink responsibly and never Drink and Drive</footer>
 
     <script src="Js/breweries.js"></script>
 </body>
