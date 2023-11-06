@@ -37,7 +37,7 @@
 
 .slider:hover {
   opacity: 1;
-  border: 1px solid #228B22 ;
+  border: 2px solid #473933 ;
 }
 
 .slider:hover::-webkit-slider-thumb {

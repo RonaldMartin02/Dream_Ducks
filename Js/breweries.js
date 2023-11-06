@@ -47,7 +47,7 @@ const getCityResults = function(event) {
             modalMessage.textContent = "No results found for the entered city.";
             return;
         }
-        
+        console.log(data)
         data.forEach(brewery => {
             let breweryCard = document.createElement('div');
             breweryCard.setAttribute("class", "card");
@@ -70,6 +70,10 @@ const getCityResults = function(event) {
             breweryCityStateZip.textContent = `${brewery.city}, ${brewery.state} ${brewery.postal_code}`;
             breweryCard.appendChild(breweryCityStateZip);
 
+            var breweryType = document.createElement('h4');
+            breweryType.textContent = brewery.brewery_type.charAt(0).toUpperCase() + brewery.brewery_type.slice(1)            
+            breweryCard.appendChild(breweryType);
+            
             if (brewery.website_url) {
                 var breweryUrl = document.createElement('a');
                 breweryUrl.textContent = 'Visit Website';
