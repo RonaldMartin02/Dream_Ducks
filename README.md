@@ -30,7 +30,7 @@
 - [Credits](#credits)
 - [License](#license)
 ## Installation
-No installation is required to use this web app but you will need to be connect to wifi or streaming data. The link for **it's time to get Social is**:(https://ronaldmartin02.github.io/Dream_Ducks/index.html)
+No installation is required to use this web app but you will need to be connect to wifi or streaming data. The link for **it's time to get Social is**:(https://ronaldmartin02.github.io/time_to_get_social/index.html)
 ## Usage
 At the home page you will choose to search for breweries or explore the available icebreakers.<br> 
  * Your search by city will result in a list of establishments in or near your city. This list is populated from [Open Brewery DB,](https://www.openbrewerydb.org/) a free dataset and API with public information on breweries, cideries, brewpubs, and bottleshops.<br> 
